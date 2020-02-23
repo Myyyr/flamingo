@@ -1,0 +1,43 @@
+matplotlib
+numpy
+pandas
+scipy
+
+# Efficient jobs (caching, parallelism, persistence)
+joblib
+
+# Easy http requests
+requests
+
+##### Machine Learning packages
+scikit-learn
+
+##### Image manipulation
+imageio
+Pillow
+scikit-image
+graphviz
+pydot
+opencv-python
+pyglet
+
+
+# May be useful with Pandas for complex "where" clauses (e.g., Pandas
+# tutorial).
+numexpr
+
+# Optional: tqdm displays nice progress bars, ipywidgets for tqdm's notebook support
+tqdm
+ipywidgets
+
+
+# RevNets requirements
+h5py
+-e git+https://github.com/lmkoch/medpy/#egg=medpy
+revtorch
+scikit-image
+nibabel
+comet-ml
+
+
+# Add your packages here

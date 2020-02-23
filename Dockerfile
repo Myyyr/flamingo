@@ -1,17 +1,20 @@
 # Import from pytorch + cuda 10.1 container
 FROM pytorch/pytorch:latest
 
-# Change user to root
-
 # Install some packages
 
-RUN apt update && \
-    apt upgrade -y && \
-    apt install -y git
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y git
 
 RUN pip install --upgrade pip
-RUN pip install matplotlib numpy pandas scipy joblib requests scikit-learn imageio Pillow scikit-image graphviz pydot opencv-python pyglet numexpr tqdm ipywidgets h5py -e git+https://github.com/lmkoch/medpy/#egg=medpy revtorch scikit-image nibabel comet-ml
 
+WORKDIR /app
+COPY requirements.txt ./
+RUN pip install -r requirements.txt
+COPY . .
+
+# Add your packages here
 
 # Set the default command
 CMD ["bash"]
