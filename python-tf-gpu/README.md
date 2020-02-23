@@ -1,11 +1,12 @@
-# Build
+Before getting started, if you want to take advantage of GPU computing, you absolutely need to install updated nvidia drivers.
 
-We take advantage of tensorman package that wraps the docker commands for tensorflow. To use it we need to build the image in the tensorman repository
-
+You can install them using what system76 developed 
 ```
-docker build --rm -t tensorman:python-gpu-jupyter .
+sudo apt-add-repository -y ppa:system76-dev/stable
+sudo apt-get update
+sudo apt-get install -y system76-driver
+sudo apt-get install system76-driver-nvidia
 ```
-
 # Configuring tensorman
 
 First of all you need to install tensorman package 
@@ -22,6 +23,14 @@ sudo usermod -aG docker $USER
 ```
 
 To purify the tensorman command to run python code, I would recommend to copy the config.toml file to your ~/.config/tensorman
+
+# Build 
+
+We take advantage of tensorman package that wraps the docker commands for tensorflow. To use it we need to build the image in the tensorman repository
+
+```
+docker build --rm -t tensorman:python-gpu-jupyter .
+```
 
 # Classic commands
 
