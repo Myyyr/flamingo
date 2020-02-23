@@ -1,7 +1,7 @@
 To build the image use this command :
 ~~~~
 cd path/to/flamingo
-sudo docker build -t flamingo < Dockerfile
+sudo docker build -t flamingo - < Dockerfile
 ~~~~
 
 The command line to run the image with gpus support is :
