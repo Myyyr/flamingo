@@ -37,8 +37,8 @@ docker build --rm -t tensorman:python-gpu-jupyter .
 To run a jupyter notebook with GPU enabled 
 
 ```
-tensorman run --gpu bash
-jupyter notebook --ip=0.0.0.0
+tensorman run -p 8888:8888 --gpu --jupyter bash
+jupyter notebook --ip=0.0.0.0 --no-browser
 ```
 
 To run code 
