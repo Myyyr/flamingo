@@ -9,7 +9,7 @@ echo  "
 
 function flamingo(){
 
-  if [ $# = 0 ]
+  if [ \$# = 0 ]
     then
       ARG=\"-r\"
     else
