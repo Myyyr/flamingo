@@ -65,5 +65,5 @@ RUN apt-get update && apt-get install -y libsm6 libxext6 libxrender-dev
 RUN pip install medpy
 
 
-# 1.0.9
+# 1.0.8
 RUN pip install --upgrade tensorflow
