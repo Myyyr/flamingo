@@ -9,24 +9,28 @@ echo  "
 
 function flamingo(){
 
-  if [ \$# = 0 ]
+  if [ $# = 0 ]
     then
-      ARG=\"-r\"
+      ARG="-r"
     else
-      ARG=\"\$1\"
+      ARG="$1"
   fi
-  
-  if [ \"\$ARG\" = \"-u\" ]
+
+  if [ "$ARG" = "-u" ]
     then
-      docker run --gpus all --rm -ti --init --ipc=host --volume=\"\$PWD:/app\" -e NVIDIA_VISIBLE_DEVICES=0 -u 1000:1000 -w /app $1 bash
+      docker run --rm -ti --init --runtime=nvidia --ipc=host --volume="$PWD:/app" -e NVIDIA_VISIBLE_DEVICES=all -u 1000:1000 -w /app pytorch:flamingo bash
   fi
-  if [ \"\$ARG\" = \"-p\" ]
+  if [ "$ARG" = "-p" ]
     then
-      docker run --gpus all --rm -ti --init --ipc=host --volume=\"\$PWD:/app\" -e NVIDIA_VISIBLE_DEVICES=0 -w /app $1 python \"\$2\"
+      docker run --rm -ti --runtime=nvidia --init --ipc=host --volume="$PWD:/app" -e NVIDIA_VISIBLE_DEVICES=all -w /app pytorch:flamingo python "$2"
   fi
-  if [ \"\$ARG\" = \"-r\" ]
+  if [ "$ARG" = "-d" ]
     then
-      docker run --gpus all --rm -ti --init --ipc=host --volume=\"\$PWD:/app\" -e NVIDIA_VISIBLE_DEVICES=0 -w /app $1 bash
+      docker run -d   -ti --init --runtime=nvidia --ipc=host --volume="$PWD:/app" -e NVIDIA_VISIBLE_DEVICES=all -w /app pytorch:flamingo bash
+  fi
+  if [ "$ARG" = "-r" ]
+    then
+      docker run --rm -ti --init --runtime=nvidia --ipc=host --volume="$PWD:/app" -e NVIDIA_VISIBLE_DEVICES=all -w /app pytorch:flamingo bash
   fi
 }
 

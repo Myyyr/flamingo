@@ -11,7 +11,7 @@ With `name` the name of your image.
 
 The command line to run the image with gpus support is :
 ~~~~
-docker run --gpus all --rm -ti --init --ipc=host --volume="$PWD:/app" -e NVIDIA_VISIBLE_DEVICES=0 -w /app image_name
+docker run --rm -ti --init --runtime=nvidia --ipc=host --volume="$PWD:/app" -e NVIDIA_VISIBLE_DEVICES=all -w /app pytorch:flamingo bash
 ~~~~
 
 
@@ -32,7 +32,7 @@ Its done.
 
 The default container run as root, you can use `flamingo -u` to not do it.
 Use `flamingo -p script.py` to run a script.
-
+If you want to run in detach mode do `flamingo -d`.
 
 ### Requirements
 
