@@ -32,7 +32,7 @@ Its done.
 
 The default container run as root, you can use `flamingo -u` to not do it.
 Use `flamingo -p script.py` to run a script.
-If you want to run in detach mode do `flamingo -d`.
+If you want to run a script in detach mode do `flamingo -d`.
 
 ### Requirements
 

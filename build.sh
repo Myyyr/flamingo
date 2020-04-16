@@ -26,7 +26,7 @@ function flamingo(){
   fi
   if [ \"\$ARG\" = \"-d\" ]
     then
-      docker run -d -ti --init --runtime=nvidia --ipc=host --volume=\"\$PWD:/app\" -e NVIDIA_VISIBLE_DEVICES=all -w /app "$1" bash
+      docker run -d -ti --init --runtime=nvidia --ipc=host --volume=\"\$PWD:/app\" -e NVIDIA_VISIBLE_DEVICES=all -w /app "$1" python \"\$2\"
   fi
   if [ \"\$ARG\" = \"-r\" ]
     then
