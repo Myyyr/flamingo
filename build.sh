@@ -4,19 +4,19 @@
 if [ "$1" = "--load" ]
   then
     docker load < $2
-    IM = "$2"
+    IM="$2"
   else
     if [ "$1" = "--pull" ]
       then
         docker pull $2
-        IM = "$2"
+        IM="$2"
       else
         if [ "$1" = "--fonly" ]
           then
-            IM = "$2"
+            IM="$2"
           else
             docker build -t $1 . -f Dockerfile
-            IM = "$1"
+            IM="$1"
         fi
     fi
 fi
