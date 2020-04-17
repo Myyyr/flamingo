@@ -5,7 +5,12 @@ if [ "$1" = "--load" ]
   then
     docker load < $2
   else
-    docker build -t $1 . -f Dockerfile
+    if [ "$1" = "--pull" ]
+      then
+        docker pull $2
+      else
+        docker build -t $1 . -f Dockerfile
+    fi
 fi
 
 
