@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-if [ "$1" = "--load"]
+if [ "$1" = "--load" ]
   then
     docker load < $2
   else
