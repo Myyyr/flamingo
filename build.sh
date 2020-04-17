@@ -17,6 +17,7 @@ if [ "$1" = "--load" ]
           else
             docker build -t $1 . -f Dockerfile
             IM = "$1"
+        fi
     fi
 fi
 
